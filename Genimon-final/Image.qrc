@@ -1,0 +1,58 @@
+<RCC>
+    <qresource prefix="/Bio">
+        <file>Image_Qt/Bio/Virus_Darnley-removebg-preview.png</file>
+        <file>Image_Qt/Bio/Virus_MrClean-removebg-preview.png</file>
+        <file>Image_Qt/Bio/Virus_Simon-removebg-preview.png</file>
+    </qresource>
+    <qresource prefix="/Chimie">
+        <file>Image_Qt/Chimique/Erlenmeyer-Jacob.png</file>
+        <file>Image_Qt/Chimique/Erlenmeyer-Karel.png</file>
+        <file>Image_Qt/Chimique/Erlenmeyer-Marie.png</file>
+    </qresource>
+    <qresource prefix="/Civil">
+        <file>Image_Qt/Civil/Abdullah_final.png</file>
+        <file>Image_Qt/Civil/Catherine_final.png</file>
+        <file>Image_Qt/Civil/Marek_final.png</file>
+        <file>Image_Qt/Civil/Trudeau_final.png</file>
+    </qresource>
+    <qresource prefix="/Decor">
+        <file>Image_Qt/Decor/AreneCombat.png</file>
+        <file>Image_Qt/Decor/ChatGPT.png</file>
+        <file>Image_Qt/Decor/Ciel_menu.jpg</file>
+        <file>Image_Qt/Decor/Livre2D.png</file>
+        <file>Image_Qt/Decor/Livre2D_V2.png</file>
+        <file>Image_Qt/Decor/School-Map-8bit.png</file>
+        <file>Image_Qt/Decor/School-Map-8bit_5a8.png</file>
+        <file>Image_Qt/Decor/Transition combat.png</file>
+        <file>Image_Qt/Decor/Cafeteria.jpeg</file>
+        <file>Image_Qt/Decor/Cafeteria_5a8.jpeg</file>
+        <file>Image_Qt/Decor/Paysage.png</file>
+    </qresource>
+    <qresource prefix="/Elec">
+        <file>Image_Qt/Elec/Emy_finale-removebg-preview.png</file>
+        <file>Image_Qt/Elec/Flo_finale-removebg-preview.png</file>
+        <file>Image_Qt/Elec/JP_finale-removebg-preview.png</file>
+        <file>Image_Qt/Elec/Marc-Antoine_finale-removebg-preview.png</file>
+    </qresource>
+    <qresource prefix="/Mec">
+        <file>Image_Qt/Mec/gear_Dylan.png</file>
+        <file>Image_Qt/Mec/gear_Joe.png</file>
+        <file>Image_Qt/Mec/gear_Luther.png</file>
+    </qresource>
+    <qresource prefix="/Info">
+        <file>Image_Qt/Info/ecran_Albert.png</file>
+        <file>Image_Qt/Info/ecran_JeremieV2.png</file>
+        <file>Image_Qt/Info/ecran_RaphaelV2.png</file>
+    </qresource>
+    <qresource prefix="/Robot">
+        <file>Image_Qt/Robot/robot_Alexis.png</file>
+        <file>Image_Qt/Robot/robot_Elon.png</file>
+        <file>Image_Qt/Robot/robot_Melianne.png</file>
+        <file>Image_Qt/Robot/robot_Youssef.png</file>
+    </qresource>
+    <qresource prefix="/Batiment">
+        <file>Image_Qt/Batiment/Felix_Finale.png</file>
+        <file>Image_Qt/Batiment/Trump_Finale.png</file>
+        <file>Image_Qt/Batiment/Vincent_Finale.png</file>
+    </qresource>
+</RCC>
