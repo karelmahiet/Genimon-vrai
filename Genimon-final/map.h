@@ -7,6 +7,7 @@
 #include <vector>
 #include <QVector>
 #include "genimon.h"
+#include "combat.h"
 
 namespace Ui {
     class Map;
@@ -39,6 +40,7 @@ public:
     explicit Map(QWidget* parent = nullptr);
     ~Map();
 
+    void showCombat();
     void demarrerMenu();
     void fermerMenu();
     void initialiserMap();
@@ -52,7 +54,6 @@ private:
     Ui::Map* ui;
     QWidget* Parent;
     QTimer* spawnTimer;
-
     QLabel* joueur;
     QPixmap imageJoueur;
     int joueurX;
@@ -79,7 +80,6 @@ private:
     void gererGenimonMap();
     void showExtFaculte();
     void showIntFaculte();
-    void showCombat();
     void showGenidex();
     void showHistoRencontre();
     void showPause();

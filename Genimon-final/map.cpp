@@ -1,5 +1,7 @@
 #include "map.h"
 #include "ui_map.h"
+#include "combat.h"
+#include <QThread>
 
 const int maxGenimon = 15;
 const int position_x_ref = 72;
@@ -168,6 +170,7 @@ void Map::handleKeyPress(int key)
         if (listeGenimons[i]->position_x - 4 == position_x && listeGenimons[i]->position_y - 1 == position_y)
         {
             emit sendGenimonToCombat(listeGenimons[i]);
+            ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/Transition combat.png"));
             showCombat();
             return;
         }

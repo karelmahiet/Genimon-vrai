@@ -5,7 +5,7 @@
 
 
 
-Controle::Controle(QWidget *parent)
+Controle::Controle(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::Controle)
     , stackedWidget(new QStackedWidget(this))
@@ -45,7 +45,7 @@ Controle::~Controle()
     delete ui;
 }
 
-void Controle::keyPressEvent(QKeyEvent *event) {
+void Controle::keyPressEvent(QKeyEvent* event) {
 
     if (stackedWidget->currentIndex() == 0) // Menu Main
     {
@@ -65,54 +65,64 @@ void Controle::keyPressEvent(QKeyEvent *event) {
         default:
             QMainWindow::keyPressEvent(event);
         }
-    }else if (stackedWidget->currentIndex() == 1) // Menu ChoixJoueur
+    }
+    else if (stackedWidget->currentIndex() == 1) // Menu ChoixJoueur
     {
         if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_Tab) {
             emit sendKeyPress(event->key());
-        } else {
+        }
+        else {
             QMainWindow::keyPressEvent(event); // Comportement par défaut
         }
 
-    }else if (stackedWidget->currentIndex() == 2) // Menu Map
+    }
+    else if (stackedWidget->currentIndex() == 2) // Menu Map
     {
         if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 || event->key() == Qt::Key_4
             || event->key() == Qt::Key_W || event->key() == Qt::Key_A || event->key() == Qt::Key_S || event->key() == Qt::Key_D) {
             emit sendKeyPress(event->key());
         }
 
-    }else if (stackedWidget->currentIndex() == 3) // Menu Capture
+    }
+    else if (stackedWidget->currentIndex() == 3) // Menu Capture
     {
 
-    }else if (stackedWidget->currentIndex() == 4) // Menu Combat
+    }
+    else if (stackedWidget->currentIndex() == 4) // Menu Combat
     {
 
-    }else if (stackedWidget->currentIndex() == 5) // Menu Genidex
+    }
+    else if (stackedWidget->currentIndex() == 5) // Menu Genidex
     {
         if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 || event->key() == Qt::Key_4 || event->key() == Qt::Key_F || event->key() == Qt::Key_A
             || event->key() == Qt::Key_W || event->key() == Qt::Key_D || event->key() == Qt::Key_S) {
             emit sendKeyPress(event->key());
         }
 
-    }else if (stackedWidget->currentIndex() == 6) // Menu HistoRencontre
+    }
+    else if (stackedWidget->currentIndex() == 6) // Menu HistoRencontre
     {
         if (event->key() == Qt::Key_4) {
             emit sendKeyPress(event->key());
         }
 
-    }else if (stackedWidget->currentIndex() == 7) // Menu Commande
+    }
+    else if (stackedWidget->currentIndex() == 7) // Menu Commande
     {
         if (event->key() == Qt::Key_4 || event->key() == Qt::Key_H || event->key() == Qt::Key_A
             || event->key() == Qt::Key_W || event->key() == Qt::Key_D || event->key() == Qt::Key_S) {
             emit sendKeyPress(event->key());
         }
 
-    }else if (stackedWidget->currentIndex() == 8) // Menu Regle
+    }
+    else if (stackedWidget->currentIndex() == 8) // Menu Regle
     {
         if (event->key() == Qt::Key_4) {
             emit sendKeyPress(event->key());
         }
 
-    }else if (stackedWidget->currentIndex() == 9) // Menu Pause
+    }
+    else if (stackedWidget->currentIndex() == 9) // Menu Pause
     {
         if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 || event->key() == Qt::Key_4) {
             emit sendKeyPress(event->key());
@@ -126,7 +136,7 @@ void Controle::changeMenu(int index) {
         stackedWidget->setCurrentIndex(index);
     }
 
-// Deconnecter les liens entres menu avant d'en faire d'autres
+    // Deconnecter les liens entres menu avant d'en faire d'autres
     disconnect(this, &Controle::sendKeyPress, choixJoueurMenu, &ChoixJoueur::handleKeyPress);
     disconnect(choixJoueurMenu, &ChoixJoueur::requestMenuChange, this, &Controle::changeMenu);
     disconnect(this, &Controle::sendKeyPress, mapMenu, &Map::handleKeyPress);
@@ -147,35 +157,43 @@ void Controle::changeMenu(int index) {
     disconnect(pauseMenu, &Pause::requestMenuChange, this, &Controle::changeMenu);
 
 
-// Relier commande clavier et de changement de menu aux autres menus.
-    if(index == 1){
+    // Relier commande clavier et de changement de menu aux autres menus.
+    if (index == 1) {
         choixJoueurMenu->updateQuiz();
         connect(this, &Controle::sendKeyPress, choixJoueurMenu, &ChoixJoueur::handleKeyPress);
         connect(choixJoueurMenu, &ChoixJoueur::requestMenuChange, this, &Controle::changeMenu);
-    }else if(index == 2){
+    }
+    else if (index == 2) {
         mapMenu->demarrerMenu();
         connect(this, &Controle::sendKeyPress, mapMenu, &Map::handleKeyPress);
         connect(mapMenu, &Map::requestMenuChange, this, &Controle::changeMenu);
         connect(mapMenu, &Map::sendGenimonToCombat, combatMenu, &Combat::setGenimonAdverse);
-    }else if(index == 3){
+    }
+    else if (index == 3) {
         connect(this, &Controle::sendKeyPress, captureMenu, &Capture::handleKeyPress);
         connect(captureMenu, &Capture::requestMenuChange, this, &Controle::changeMenu);
-    }else if(index == 4){
+    }
+    else if (index == 4) {
         connect(this, &Controle::sendKeyPress, combatMenu, &Combat::handleKeyPress);
         connect(combatMenu, &Combat::requestMenuChange, this, &Controle::changeMenu);
-    }else if(index == 5){
+    }
+    else if (index == 5) {
         connect(this, &Controle::sendKeyPress, genidexMenu, &Genidex::handleKeyPress);
         connect(genidexMenu, &Genidex::requestMenuChange, this, &Controle::changeMenu);
-    }else if(index == 6){
+    }
+    else if (index == 6) {
         connect(this, &Controle::sendKeyPress, histoRencontreMenu, &HistoRencontre::handleKeyPress);
         connect(histoRencontreMenu, &HistoRencontre::requestMenuChange, this, &Controle::changeMenu);
-    }else if(index == 7){
+    }
+    else if (index == 7) {
         connect(this, &Controle::sendKeyPress, commandeMenu, &Commande::handleKeyPress);
         connect(commandeMenu, &Commande::requestMenuChange, this, &Controle::changeMenu);
-    }else if(index == 8){
+    }
+    else if (index == 8) {
         connect(this, &Controle::sendKeyPress, regleMenu, &Regle::handleKeyPress);
         connect(regleMenu, &Regle::requestMenuChange, this, &Controle::changeMenu);
-    }else if (index == 9){
+    }
+    else if (index == 9) {
         connect(this, &Controle::sendKeyPress, pauseMenu, &Pause::handleKeyPress);
         connect(pauseMenu, &Pause::requestMenuChange, this, &Controle::changeMenu);
         connect(pauseMenu, &Pause::reinitialiserJeu, choixJoueurMenu, &ChoixJoueur::initialiserChoixJoueur);
@@ -183,12 +201,3 @@ void Controle::changeMenu(int index) {
         connect(pauseMenu, &Pause::mode5a8, mapMenu, &Map::gererMode5a8);
     }
 }
-
-
-
-
-
-
-
-
-
