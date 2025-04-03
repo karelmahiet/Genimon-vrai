@@ -101,7 +101,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Revenir au jeu (4)</string>
+    <string>Mode 5a8 (3) : OFF</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -195,11 +195,33 @@
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="Option4">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>480</y>
+     <width>221</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Revenir au jeu (4)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="Image.qrc"/>
-  <include location="Image.qrc"/>
-  <include location="../../../../../.designer/backup/Image.qrc"/>
  </resources>
  <connections/>
 </ui>

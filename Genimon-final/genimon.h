@@ -13,10 +13,11 @@
 #include <qlabel.h>
 using namespace std;
 
-class Genimon
+class Genimon : public QLabel
 {
+	Q_OBJECT
 public:
-	Genimon();
+	Genimon(QWidget* parent);
 	Genimon(int typeC, string nomC);
 	virtual void apparait();
 	void presenter();
@@ -37,7 +38,10 @@ public:
 	int getFacteurDegats();
 	int position_x;
 	int position_y;
+	int genimonX;
+	int genimonY;
 	int pvMax;
+	bool estExterieur;
 protected:
 	string nom;
 	string rarete;
@@ -46,6 +50,7 @@ protected:
 	int rareteNumerique;
 	int facteurChance;
 	int gainBalles;
+	QPixmap imageGenimon;
 
 	//variables pour les combats
 	string typeSuperieur;
@@ -55,6 +60,7 @@ protected:
 	int facteurDegats;
 
 	void setNom();
+	void setImage();
 };
 
 #endif

@@ -1,8 +1,8 @@
 #include "genimon.h"
-#include "gestionJeu.h"
 
-Genimon::Genimon()
+Genimon::Genimon(QWidget* parent) : QLabel(parent)
 {
+	srand(time(0));
     int random = rand() % 8;
     typeNumerique = random;
     setNom();
@@ -47,6 +47,7 @@ Genimon::Genimon()
         typeInferieur = "chimique";
     }
 
+    setImage();
     setRarete();
     facteurDegats = degats/4;
 }
@@ -110,14 +111,12 @@ Genimon::Genimon(int typeC, string nomC)
 void Genimon::setNom()
 {
     if (typeNumerique == 0) { // informatique
-        int random = rand() % 4;
+        int random = rand() % 3;
         if (random == 0)
-            nom = "Jeremie";
+            nom = "Albert";
         else if (random == 1)
-            nom = "Alexis";
+            nom = "Jeremie";
         else if (random == 2)
-            nom = "Karel";
-        else if (random == 3)
             nom = "Raphael";
     }
     else if (typeNumerique == 1) { // electrique
@@ -125,84 +124,77 @@ void Genimon::setNom()
         if (random == 0)
             nom = "Florian";
         else if (random == 1)
-            nom = "Dylan";
+            nom = "JP";
         else if (random == 2)
-            nom = "Marek";
+            nom = "Emy";
         else if (random == 3)
-            nom = "Vincent";
+            nom = "Marc-Antoine";
     }
     else if (typeNumerique == 2) { // robotique
         int random = rand() % 4;
         if (random == 0)
-            nom = "Zack";
+            nom = "Alexis";
         else if (random == 1)
             nom = "Melianne";
         else if (random == 2)
-            nom = "Joe";
+            nom = "Elon";
         else if (random == 3)
-            nom = "Ethan";
+            nom = "Youssef";
     }
     else if (typeNumerique == 3) { // mecanique
-        int random = rand() % 4;
+        int random = rand() % 3;
         if (random == 0)
-            nom = "Eric";
+            nom = "Dylan";
         else if (random == 1)
-            nom = "Robert";
+            nom = "Joe";
         else if (random == 2)
-            nom = "Olivier";
-        else if (random == 3)
-            nom = "Isabelle";
+            nom = "Luther";
     }
     else if (typeNumerique == 4) { // civil
         int random = rand() % 4;
         if (random == 0)
-            nom = "Sammuel";
+            nom = "Abdullah";
         else if (random == 1)
-            nom = "Jeff";
+            nom = "Catherine";
         else if (random == 2)
-            nom = "Francois";
+            nom = "Marek";
         else if (random == 3)
-            nom = "Laurianne";
+            nom = "Trudeau";
 
     }
     else if (typeNumerique == 5) { // batiment
-        int random = rand() % 4;
+        int random = rand() % 3;
         if (random == 0)
-            nom = "Steve";
+            nom = "Felix";
         else if (random == 1)
-            nom = "Tony";
+            nom = "Trump";
         else if (random == 2)
-            nom = "Marianne";
-        else if (random == 3)
-            nom = "Angelie";
+            nom = "Vincent";
     }
     else if (typeNumerique == 6) { // bioTech
-        int random = rand() % 4;
-        if (random == 0)
-            nom = "Philippe";
-        else if (random == 1)
-            nom = "Lilianne";
-        else if (random == 2)
-            nom = "Antoine";
-        else if (random == 3)
-            nom = "Mikael";
-    }
-    else if (typeNumerique == 7) { // chimique
-        int random = rand() % 4;
+        int random = rand() % 3;
         if (random == 0)
             nom = "Darnley";
         else if (random == 1)
-            nom = "Elon";
+            nom = "MrClean";
         else if (random == 2)
-            nom = "Donald";
-        else if (random == 3)
-            nom = "Justin";
+            nom = "Simon";
+    }
+    else if (typeNumerique == 7) { // chimique
+        int random = rand() % 3;
+        if (random == 0)
+            nom = "Jacob";
+        else if (random == 1)
+            nom = "Marie";
+        else if (random == 2)
+            nom = "Karel";
     }
 }
 
 void Genimon::setRarete()
 {
-    bool evenement = evenementActif();
+    /*bool evenement = evenementActif();*/
+    bool evenement = false;
     int random = rand() % 100;
 
     if (evenement)  //5@8
@@ -315,6 +307,116 @@ void Genimon::setRarete()
     }
 }
 
+void Genimon::setImage()
+{
+    if (nom == "Florian") {
+        imageGenimon.load(":/Elec/Image_Qt/Elec/Flo_finale-removebg-preview.png");
+    }
+    else if (nom == "Emy") {
+        imageGenimon.load(":/Elec/Image_Qt/Elec/Emy_finale-removebg-preview.png");
+    }
+    else if (nom == "Marc-Antoine") {
+        imageGenimon.load(":/Elec/Image_Qt/Elec/Marc-Antoine_finale-removebg-preview.png");
+    }
+    else if (nom == "JP") {
+        imageGenimon.load(":/Elec/Image_Qt/Elec/JP_finale-removebg-preview.png");
+    }
+    else if (nom == "Albert") {
+        imageGenimon.load(":/Info/Image_Qt/Info/ecran_Albert.png");
+    }
+    else if (nom == "Jeremie") {
+        imageGenimon.load(":/Info/Image_Qt/Info/ecran_Jeremie.png");
+    }
+    else if (nom == "Raphael") {
+        imageGenimon.load(":/Info/Image_Qt/Info/ecran_Raphael.png");
+    }
+    else if (nom == "Dylan") {
+        imageGenimon.load(":/Mec/Image_Qt/Mec/gear_Dylan.png");
+    }
+    else if (nom == "Joe") {
+        imageGenimon.load(":/Mec/Image_Qt/Mec/gear_Joe.png");
+    }
+    else if (nom == "Luther") {
+        imageGenimon.load(":/Mec/Image_Qt/Mec/gear_Luther.png");
+    }
+    else if (nom == "Abdullah") {
+        imageGenimon.load(":/Civil/Image_Qt/Civil/Abdullah_final.png");
+    }
+    else if (nom == "Catherine") {
+        imageGenimon.load(":/Civil/Image_Qt/Civil/Catherine_final.png");
+    }
+    else if (nom == "Marek") {
+        imageGenimon.load(":/Civil/Image_Qt/Civil/Marek_final.png");
+    }
+    else if (nom == "Trudeau") {
+        imageGenimon.load(":/Civil/Image_Qt/Civil/Trudeau_final.png");
+    }
+    else if (nom == "Jacob") {
+        imageGenimon.load(":/Chimie/Image_Qt/Chimique/Erlenmeyer-Jacob.png");
+    }
+    else if (nom == "Karel") {
+        imageGenimon.load(":/Chimie/Image_Qt/Chimique/Erlenmeyer-Karel.png");
+    }
+    else if (nom == "Marie") {
+        imageGenimon.load(":/Chimie/Image_Qt/Chimique/Erlenmeyer-Marie.png");
+    }
+    else if (nom == "Darnley") {
+        imageGenimon.load(":/Bio/Image_Qt/Bio/Virus_Darnley-removebg-preview.png");
+    }
+    else if (nom == "MrClean") {
+        imageGenimon.load(":/Bio/Image_Qt/Bio/Virus_MrClean-removebg-preview.png");
+    }
+    else if (nom == "Simon") {
+        imageGenimon.load(":/Bio/Image_Qt/Bio/Virus_Simon-removebg-preview.png");
+    }
+    else if (nom == "Felix") {
+        imageGenimon.load(":/Batiment/Image_Qt/Batiment/Felix_Finale.png");
+    }
+    else if (nom == "Trump") {
+        imageGenimon.load(":/Batiment/Image_Qt/Batiment/Trump_Finale.png");
+    }
+    else if (nom == "Vincent") {
+        imageGenimon.load(":/Batiment/Image_Qt/Batiment/Vincent_Finale.png");
+    }
+    else if (nom == "Alexis") {
+        imageGenimon.load(":/Robot/Image_Qt/Robot/robot_Alexis.png");
+    }
+    else if (nom == "Elon") {
+        imageGenimon.load(":/Robot/Image_Qt/Robot/robot_Elon.png");
+    }
+    else if (nom == "Melianne") {
+        imageGenimon.load(":/Robot/Image_Qt/Robot/robot_Melianne.png");
+    }
+    else if (nom == "Youssef") {
+        imageGenimon.load(":/Robot/Image_Qt/Robot/robot_Youssef.png");
+    }
+    else {
+        imageGenimon.load(":/Civil/Image_Qt/Civil/Trudeau_final.png");
+    }
+
+    this->setPixmap(imageGenimon.scaled(120, 70, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    this->setScaledContents(true);
+
+    if(type != "electrique")
+    {
+        this->resize(50, 50);
+    }
+    else
+    {
+        this->resize(70, 50);
+    }
+
+    int chance = rand() % 2;
+    if (chance == 0)
+    {
+        estExterieur = true;
+    }
+    else
+    {
+        estExterieur = false;
+    }
+}
+
 void Genimon::apparait() {
     cout << endl << "    -----Un Genimon sauvage " << rarete << " de type " << type << " apparait!-----" << endl;
     cout << "                   -----Il s'agit de " << nom << "-----                       " << endl;
@@ -387,9 +489,12 @@ int Genimon::getGainBalles()
 
 bool Genimon::capture(int* nbBallesJoueur)
 {
-    extern bool bouton1_On;
+    /*extern bool bouton1_On;
     extern bool bouton2_On;
-    extern int numBouton;
+    extern int numBouton;*/
+    bool bouton1_On = false;
+    bool bouton2_On = false;
+    int numBouton = 1;
     bool captureReussie = false;
     bool captureFinie = false;
 

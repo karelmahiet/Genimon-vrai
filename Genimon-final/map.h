@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QTimer>
 #include <vector>
+#include <QVector>
 #include "genimon.h"
 
 namespace Ui {
@@ -41,6 +42,7 @@ public:
     void demarrerMenu();
     void fermerMenu();
     void initialiserMap();
+    void gererMode5a8();
 
 public slots:
     void handleKeyPress(int key);
@@ -49,6 +51,7 @@ public slots:
 private:
     Ui::Map* ui;
     QWidget* Parent;
+    QTimer* spawnTimer;
 
     QLabel* joueur;
     QPixmap imageJoueur;
@@ -62,27 +65,26 @@ private:
     int borne_y_max;
 
     /*caseGenidex genidex[8];
-    vector<Genimon> historique;
-    Vecteur<Genimon*> listeGenimons;*/
+    vector<Genimon> historique;*/
+    QVector<Genimon*> listeGenimons;
     int nbGenimonAttrapes;
     int nbBalles;
     int nbCapsuleGuerison;
 
     int step;
     bool estExterieur;
-    bool enCombat;
     QString nomJoueur;
+    bool mode5a8Actif;
 
-    QVector<GenimonSprite> genimonsSurCarte;
-    QTimer* spawnTimer;
-
-    void spawnRandomGenimon();
+    void gererGenimonMap();
     void showExtFaculte();
     void showIntFaculte();
     void showCombat();
     void showGenidex();
     void showHistoRencontre();
     void showPause();
+    void ajouterGenimon();
+    void retirerGenimon();
 
 signals:
     void requestMenuChange(int index);

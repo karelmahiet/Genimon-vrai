@@ -84,8 +84,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="genimon.cpp" />
-    <ClCompile Include="gestionJeu.cpp" />
-    <ClCompile Include="joueur.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="map.cpp" />
     <ClCompile Include="pause.cpp" />
@@ -150,14 +148,11 @@
     <QtMoc Include="regle.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="genimon.h" />
-    <ClInclude Include="gestionJeu.h" />
+    <QtMoc Include="genimon.h" />
     <ClInclude Include="json.hpp" />
-    <QtMoc Include="joueur.h" />
     <QtMoc Include="pause.h" />
     <ClInclude Include="SerialPort.hpp" />
     <ClInclude Include="unistd.h" />
-    <ClInclude Include="vecteur.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

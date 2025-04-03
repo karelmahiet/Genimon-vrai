@@ -76,12 +76,6 @@
     <ClCompile Include="SerialPort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="joueur.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gestionJeu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="genimon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -120,10 +114,10 @@
     <QtMoc Include="regle.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="joueur.h">
+    <QtMoc Include="pause.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="pause.h">
+    <QtMoc Include="genimon.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -172,16 +166,7 @@
     <ClInclude Include="unistd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vecteur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="json.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="gestionJeu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="genimon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

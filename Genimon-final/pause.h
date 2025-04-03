@@ -24,6 +24,7 @@ private:
 signals:
     void requestMenuChange(int index);  // Signal pour demander un changement de menu
     void reinitialiserJeu();
+    void mode5a8();
 };
 
 #endif // PAUSE_H

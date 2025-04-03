@@ -114,7 +114,7 @@ void Controle::keyPressEvent(QKeyEvent *event) {
 
     }else if (stackedWidget->currentIndex() == 9) // Menu Pause
     {
-        if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_4) {
+        if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 || event->key() == Qt::Key_4) {
             emit sendKeyPress(event->key());
         }
 
@@ -180,6 +180,7 @@ void Controle::changeMenu(int index) {
         connect(pauseMenu, &Pause::requestMenuChange, this, &Controle::changeMenu);
         connect(pauseMenu, &Pause::reinitialiserJeu, choixJoueurMenu, &ChoixJoueur::initialiserChoixJoueur);
         connect(pauseMenu, &Pause::reinitialiserJeu, mapMenu, &Map::initialiserMap);
+        connect(pauseMenu, &Pause::mode5a8, mapMenu, &Map::gererMode5a8);
     }
 }
 

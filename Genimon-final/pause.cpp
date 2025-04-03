@@ -21,6 +21,9 @@ void Pause::handleKeyPress(int key) {
         emit requestMenuChange(0); //Passer au menu main
         emit reinitialiserJeu();
     }
+    else if (key == Qt::Key_3) {
+        emit mode5a8();
+    }
     else if (key == Qt::Key_4) {
         emit requestMenuChange(2); //Passer au menu map
     }
