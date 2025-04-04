@@ -50,6 +50,10 @@ void ChoixJoueur::handleKeyPress(int key) {
 
     if (etat == 0 && key == Qt::Key_Tab) {
         nomJoueur = ui->NomChoisi->text();
+        if (nomJoueur == "")
+        {
+            nomJoueur = "Joueur";
+        }
         ui->NomChoisi->clearFocus();
         ui->NomChoisi->clear();
         qDebug() << "Nom validé par Tab :" << nomJoueur;
@@ -59,6 +63,10 @@ void ChoixJoueur::handleKeyPress(int key) {
     else if (etat == 1 && key == Qt::Key_Tab)
     {
         nomStarter = ui->NomChoisi->text();
+        if (nomStarter == "")
+        {
+            nomStarter = "Genie";
+        }
         ui->NomChoisi->clearFocus();
         ui->NomChoisi->clear();
         qDebug() << "Nom validé par Tab :" << nomStarter;

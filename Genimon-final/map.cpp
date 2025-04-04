@@ -32,14 +32,20 @@ void Map::demarrerMenu()
 
     for (int i = 0; i < listeGenimons.count(); i++)
     {
-        listeGenimons[i]->show();
+        if (estExterieur && listeGenimons[i]->estExterieur)
+        {
+            listeGenimons[i]->show();
+        }
+        else if (!estExterieur && !listeGenimons[i]->estExterieur)
+        {
+            listeGenimons[i]->show();
+        }
     }
 }
 
 void Map::fermerMenu()
 {
     joueur->hide();
-    spawnTimer->stop();
 
     for (int i = 0; i < listeGenimons.count(); i++)
     {
@@ -64,10 +70,10 @@ void Map::initialiserMap()
     nbCapsuleGuerison = 0;
     step = 10;
     estExterieur = true;
-    nomJoueur = "default";
+    nomJoueur = "";
     mode5a8Actif = false;
 
-    ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-8bit.png"));
+    ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-withoutPeople-8bit.jpeg"));
     imageJoueur.load(":/Decor/Image_Qt/Decor/ChatGPT.png");
     joueur->setPixmap(imageJoueur.scaled(120, 70, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     joueur->setScaledContents(true);
@@ -75,6 +81,7 @@ void Map::initialiserMap()
     joueur->move(680, 550);
     joueur->hide();
 
+    listeGenimons.clear();
     spawnTimer = new QTimer(this);
     connect(spawnTimer, &QTimer::timeout, this, &Map::gererGenimonMap);
 }
@@ -209,28 +216,28 @@ void Map::ajouterGenimon()
 {
     Genimon* nouveauGenimon = new Genimon(Parent);
     listeGenimons.append(nouveauGenimon);
-    if(estExterieur)
+    if (nouveauGenimon->estExterieur)
     {
         nouveauGenimon->position_x = 21 + rand() % 84;
-        nouveauGenimon->position_y = rand() % borne_y_max;
+        nouveauGenimon->position_y = 2 + rand() % borne_y_max - 2;
     }
     else
     {
         nouveauGenimon->position_x = rand() % borne_x_max;
-        nouveauGenimon->position_y = rand() % borne_y_max - 6;
+        nouveauGenimon->position_y = 2 + rand() % borne_y_max - 8;
     }
 
     while (nouveauGenimon->position_x == position_x && nouveauGenimon->position_y == position_y)
     {
-        if (estExterieur)
+        if (nouveauGenimon->estExterieur)
         {
             nouveauGenimon->position_x = 21 + rand() % 84;
-            nouveauGenimon->position_y = rand() % borne_y_max;
+            nouveauGenimon->position_y = 2 + rand() % borne_y_max - 2;
         }
         else
         {
             nouveauGenimon->position_x = rand() % borne_x_max;
-            nouveauGenimon->position_y = rand() % borne_y_max - 6;
+            nouveauGenimon->position_y = 2 + rand() % borne_y_max - 8;
         }
     }
 
@@ -292,7 +299,7 @@ void Map::gererMode5a8()
         mode5a8Actif = false;
         if (estExterieur)
         {
-            ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-8bit.png"));
+            ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-withoutPeople-8bit.jpeg"));
         }
         else
         {
@@ -321,7 +328,7 @@ void Map::showExtFaculte()
     }
     else
     {
-        ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-8bit.png"));
+        ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-withoutPeople-8bit.jpeg"));
     }
     ui->NomPerso->setVisible(true);
 
@@ -381,6 +388,7 @@ void Map::showCombat()
 {
     emit requestMenuChange(4); //Passer au menu combat
     fermerMenu();
+    spawnTimer->stop();
 }
 
 void Map::showGenidex()
@@ -399,6 +407,7 @@ void Map::showPause()
 {
     emit requestMenuChange(9); //Passer au menu pause
     fermerMenu();
+    spawnTimer->stop();
 }
 
 void Map::setNomJoueur(const QString& nom)

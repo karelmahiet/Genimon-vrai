@@ -30,13 +30,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         genidex.h genidex.cpp genidex.ui
         genimon.h genimon.cpp
         GenimonFinal.h GenimonFinal.cpp
-        gestionJeu.h gestionJeu.cpp
         historencontre.h historencontre.cpp historencontre.ui
-        joueur.h joueur.cpp
         json.hpp
         SerialPort.hpp
         unistd.h unistd.cpp
-        vecteur.h vecteur.cpp
         map.h map.cpp map.ui
         regle.h regle.cpp regle.ui
         pause.h pause.cpp pause.ui

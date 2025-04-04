@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QTimer>
-#include <genimon.h>
+#include "genimon.h"
 
 namespace Ui {
     class Combat;

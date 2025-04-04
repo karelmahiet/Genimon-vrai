@@ -15,11 +15,11 @@ public:
     explicit ChoixJoueur(QWidget *parent = nullptr);
     ~ChoixJoueur();
 
-    void initialiserChoixJoueur();
     void updateQuiz();
 
 public slots:
     void handleKeyPress(int key);   // Slot pour gérer les touches 1 et 2
+    void initialiserChoixJoueur();
 
 private:
     Ui::ChoixJoueur *ui;

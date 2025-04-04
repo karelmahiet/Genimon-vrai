@@ -43,12 +43,12 @@ public:
     void showCombat();
     void demarrerMenu();
     void fermerMenu();
-    void initialiserMap();
-    void gererMode5a8();
 
 public slots:
     void handleKeyPress(int key);
     void setNomJoueur(const QString& nom);
+    void initialiserMap();
+    void gererMode5a8();
 
 private:
     Ui::Map* ui;

@@ -141,6 +141,7 @@ void Controle::changeMenu(int index) {
     disconnect(choixJoueurMenu, &ChoixJoueur::requestMenuChange, this, &Controle::changeMenu);
     disconnect(this, &Controle::sendKeyPress, mapMenu, &Map::handleKeyPress);
     disconnect(mapMenu, &Map::requestMenuChange, this, &Controle::changeMenu);
+    disconnect(mapMenu, &Map::sendGenimonToCombat, combatMenu, &Combat::setGenimonAdverse);
     disconnect(this, &Controle::sendKeyPress, captureMenu, &Capture::handleKeyPress);
     disconnect(captureMenu, &Capture::requestMenuChange, this, &Controle::changeMenu);
     disconnect(this, &Controle::sendKeyPress, combatMenu, &Combat::handleKeyPress);
@@ -155,6 +156,7 @@ void Controle::changeMenu(int index) {
     disconnect(regleMenu, &Regle::requestMenuChange, this, &Controle::changeMenu);
     disconnect(this, &Controle::sendKeyPress, pauseMenu, &Pause::handleKeyPress);
     disconnect(pauseMenu, &Pause::requestMenuChange, this, &Controle::changeMenu);
+    disconnect(pauseMenu, &Pause::mode5a8, mapMenu, &Map::gererMode5a8);
 
 
     // Relier commande clavier et de changement de menu aux autres menus.

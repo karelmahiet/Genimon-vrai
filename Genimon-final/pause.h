@@ -20,6 +20,7 @@ public slots:
 
 private:
     Ui::Pause* ui;
+    bool mode5a8Actif;
 
 signals:
     void requestMenuChange(int index);  // Signal pour demander un changement de menu
