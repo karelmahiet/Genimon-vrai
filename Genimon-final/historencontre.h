@@ -2,6 +2,8 @@
 #define HISTORENCONTRE_H
 
 #include <QWidget>
+#include <vector>
+#include "genimon.h"
 
 namespace Ui {
 class HistoRencontre;
@@ -17,6 +19,7 @@ public:
 
 public slots:
     void handleKeyPress(int key);
+    void ecrireHistorique(vector<Genimon> historique);
 
 private:
     Ui::HistoRencontre *ui;

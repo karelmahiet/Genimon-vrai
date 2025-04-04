@@ -18,6 +18,7 @@ class Genimon : public QLabel
 	Q_OBJECT
 public:
 	Genimon(QWidget* parent);
+	Genimon(const Genimon&);
 	Genimon(int typeC, string nomC);
 	virtual void apparait();
 	void presenter();

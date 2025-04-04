@@ -65,8 +65,8 @@ private:
     int borne_x_max;
     int borne_y_max;
 
-    /*caseGenidex genidex[8];
-    vector<Genimon> historique;*/
+    //caseGenidex genidex[8];
+    vector<Genimon> historique;
     QVector<Genimon*> listeGenimons;
     int nbGenimonAttrapes;
     int nbBalles;
@@ -76,6 +76,7 @@ private:
     bool estExterieur;
     QString nomJoueur;
     bool mode5a8Actif;
+    bool estSurMap;
 
     void gererGenimonMap();
     void showExtFaculte();
@@ -89,6 +90,7 @@ private:
 signals:
     void requestMenuChange(int index);
     void sendGenimonToCombat(Genimon* genimon);
+    void sendHistorique(vector<Genimon> historique);
 };
 
 #endif // MAP_H

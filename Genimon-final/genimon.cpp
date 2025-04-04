@@ -108,6 +108,30 @@ Genimon::Genimon(int typeC, string nomC)
     pvMax = pv;
 }
 
+Genimon::Genimon(const Genimon& genimon)
+{
+    position_x = genimon.position_x;
+    position_y = genimon.position_y;
+    genimonX = genimon.genimonX;
+    genimonY = genimon.genimonY;
+    pvMax = genimon.pvMax;
+    estExterieur = genimon.estExterieur;
+    nom = genimon.nom;
+    rarete = genimon.rarete;
+    type = genimon.type;
+    typeNumerique = genimon.typeNumerique;
+    rareteNumerique = genimon.rareteNumerique;
+    facteurChance = genimon.facteurChance;
+    gainBalles = genimon.gainBalles;
+    imageGenimon = genimon.imageGenimon;
+
+    typeSuperieur = genimon.typeSuperieur;
+    typeInferieur = genimon.typeInferieur;
+    pv = genimon.pv;
+    degats = genimon.degats;
+    facteurDegats = genimon.facteurDegats;
+}
+
 void Genimon::setNom()
 {
     if (typeNumerique == 0) { // informatique
@@ -396,15 +420,7 @@ void Genimon::setImage()
 
     this->setPixmap(imageGenimon.scaled(120, 70, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     this->setScaledContents(true);
-
-    if(type != "electrique")
-    {
-        this->resize(50, 50);
-    }
-    else
-    {
-        this->resize(70, 50);
-    }
+    this->resize(50, 50);
 
     int chance = rand() % 2;
     if (chance == 0)

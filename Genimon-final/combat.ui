@@ -68,10 +68,10 @@
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="Genimon1">
@@ -84,17 +84,17 @@
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="TableauInfo">
    <property name="geometry">
     <rect>
-     <x>890</x>
-     <y>420</y>
+     <x>600</x>
+     <y>380</y>
      <width>391</width>
      <height>301</height>
     </rect>
@@ -112,7 +112,7 @@
     <enum>QFrame::Shape::Box</enum>
    </property>
    <property name="lineWidth">
-    <number>5</number>
+    <number>3</number>
    </property>
    <property name="text">
     <string>Info du combat :</string>
@@ -146,149 +146,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="Attaque4">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>645</y>
-     <width>250</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>true</bool>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::Box</enum>
-   </property>
-   <property name="lineWidth">
-    <number>5</number>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Nom2">
-   <property name="geometry">
-    <rect>
-     <x>900</x>
-     <y>105</y>
-     <width>150</width>
-     <height>40</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Nom :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Attaque2">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>645</y>
-     <width>250</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>true</bool>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::Box</enum>
-   </property>
-   <property name="lineWidth">
-    <number>5</number>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Attaque1">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>570</y>
-     <width>250</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>true</bool>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::Box</enum>
-   </property>
-   <property name="lineWidth">
-    <number>5</number>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Attaque3">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>570</y>
-     <width>250</width>
-     <height>75</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>true</bool>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Shape::Box</enum>
-   </property>
-   <property name="lineWidth">
-    <number>5</number>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignmentFlag::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QLabel" name="HP1">
    <property name="geometry">
     <rect>
@@ -312,9 +169,9 @@
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>245</y>
+     <y>190</y>
      <width>150</width>
-     <height>40</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="font">
@@ -323,16 +180,95 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Nom :</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Contoles">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>501</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Shape::Box</enum>
+   </property>
+   <property name="lineWidth">
+    <number>3</number>
+   </property>
+   <property name="text">
+    <string>Attaquer (1)       Bloquer (2)       Bonus (3)       Fuir (4)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Nom2">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>50</y>
+     <width>150</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Nom :</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Alerte">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>381</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Alerte</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
   </widget>
   <zorder>BackGround</zorder>
-  <zorder>Attaque4</zorder>
-  <zorder>Nom2</zorder>
-  <zorder>Attaque2</zorder>
-  <zorder>Attaque1</zorder>
-  <zorder>Attaque3</zorder>
   <zorder>Nom1</zorder>
   <zorder>Genimon1</zorder>
   <zorder>Genimon2</zorder>
@@ -341,6 +277,9 @@
   <zorder>HP_V1</zorder>
   <zorder>HP_V2</zorder>
   <zorder>TableauInfo</zorder>
+  <zorder>Contoles</zorder>
+  <zorder>Nom2</zorder>
+  <zorder>Alerte</zorder>
  </widget>
  <resources>
   <include location="Image.qrc"/>

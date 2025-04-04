@@ -154,6 +154,7 @@ void Controle::changeMenu(int index) {
     disconnect(this, &Controle::sendKeyPress, mapMenu, &Map::handleKeyPress);
     disconnect(mapMenu, &Map::requestMenuChange, this, &Controle::changeMenu);
     disconnect(mapMenu, &Map::sendGenimonToCombat, combatMenu, &Combat::setGenimonAdverse);
+    //disconnect(mapMenu, &Map::sendHistorique, histoRencontreMenu, &HistoRencontre::ecrireHistorique);
     disconnect(this, &Controle::sendKeyPress, captureMenu, &Capture::handleKeyPress);
     disconnect(captureMenu, &Capture::requestMenuChange, this, &Controle::changeMenu);
     disconnect(this, &Controle::sendKeyPress, combatMenu, &Combat::handleKeyPress);
@@ -184,6 +185,7 @@ void Controle::changeMenu(int index) {
         connect(this, &Controle::sendKeyPress, mapMenu, &Map::handleKeyPress);
         connect(mapMenu, &Map::requestMenuChange, this, &Controle::changeMenu);
         connect(mapMenu, &Map::sendGenimonToCombat, combatMenu, &Combat::setGenimonAdverse);
+        connect(mapMenu, &Map::sendHistorique, histoRencontreMenu, &HistoRencontre::ecrireHistorique);
     }
     else if (index == 3) {
         connect(this, &Controle::sendKeyPress, captureMenu, &Capture::handleKeyPress);

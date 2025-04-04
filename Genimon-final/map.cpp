@@ -29,6 +29,7 @@ void Map::demarrerMenu()
 {
     joueur->show();
     spawnTimer->start(4000);
+    estSurMap = true;
 
     for (int i = 0; i < listeGenimons.count(); i++)
     {
@@ -46,6 +47,7 @@ void Map::demarrerMenu()
 void Map::fermerMenu()
 {
     joueur->hide();
+    estSurMap = false;
 
     for (int i = 0; i < listeGenimons.count(); i++)
     {
@@ -72,6 +74,7 @@ void Map::initialiserMap()
     estExterieur = true;
     nomJoueur = "";
     mode5a8Actif = false;
+    estSurMap = true;
 
     ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/School-Map-withoutPeople-8bit.jpeg"));
     imageJoueur.load(":/Decor/Image_Qt/Decor/ChatGPT.png");
@@ -81,6 +84,7 @@ void Map::initialiserMap()
     joueur->move(680, 550);
     joueur->hide();
 
+    historique.clear();
     listeGenimons.clear();
     spawnTimer = new QTimer(this);
     connect(spawnTimer, &QTimer::timeout, this, &Map::gererGenimonMap);
@@ -176,10 +180,11 @@ void Map::handleKeyPress(int key)
     {
         if (listeGenimons[i]->position_x - 4 == position_x && listeGenimons[i]->position_y - 1 == position_y)
         {
-            emit sendGenimonToCombat(listeGenimons[i]);
-            ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/Transition combat.png"));
-            showCombat();
-            return;
+            historique.push_back(*listeGenimons[i]);
+            //emit sendGenimonToCombat(listeGenimons[i]);
+            //ui->BackGround->setPixmap(QPixmap(":/Decor/Image_Qt/Decor/Transition combat.png"));
+            //showCombat();
+            //return;
         }
     }
 }
@@ -275,11 +280,11 @@ void Map::ajouterGenimon()
 
     nouveauGenimon->move(nouveauGenimon->genimonX, nouveauGenimon->genimonY);
 
-    if (estExterieur && nouveauGenimon->estExterieur)
+    if (estSurMap && estExterieur && nouveauGenimon->estExterieur)
     {
         nouveauGenimon->show();
     }
-    else if (!estExterieur && !nouveauGenimon->estExterieur)
+    else if (estSurMap && !estExterieur && !nouveauGenimon->estExterieur)
     {
         nouveauGenimon->show();
     }
@@ -400,6 +405,7 @@ void Map::showGenidex()
 void Map::showHistoRencontre()
 {
     emit requestMenuChange(6); //Passer au menu histoRencontre
+    emit sendHistorique(historique);
     fermerMenu();
 }
 
