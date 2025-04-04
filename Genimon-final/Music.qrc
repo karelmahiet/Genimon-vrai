@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/Music">
+        <file>Image_Qt/Music/Blitzkrieg 2022.wav</file>
+        <file>Image_Qt/Music/Blitzkrieg_Int.wav</file>
+        <file>Image_Qt/Music/Final Fantasy VII Medley.mp3</file>
+    </qresource>
+</RCC>

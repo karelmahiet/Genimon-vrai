@@ -38,6 +38,9 @@
     <QtRcc Include="Image.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+    <QtRcc Include="Music.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -82,6 +85,9 @@
     <ClCompile Include="pause.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="choixaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="capture.h">
@@ -120,6 +126,9 @@
     <QtMoc Include="genimon.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="choixaction.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="capture.ui">
@@ -153,6 +162,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="pause.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="choixaction.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

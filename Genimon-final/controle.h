@@ -14,6 +14,7 @@
 #include "map.h"
 #include "regle.h"
 #include "pause.h"
+#include "choixaction.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -45,6 +46,7 @@ private:
     Commande* commandeMenu;
     Regle* regleMenu;
     Pause* pauseMenu;
+    ChoixAction* choixActionMenu;
 
     void changeMenu(int index);
 

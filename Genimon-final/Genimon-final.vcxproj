@@ -83,6 +83,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="choixaction.cpp" />
     <ClCompile Include="genimon.cpp" />
     <ClCompile Include="mainmenu.cpp" />
     <ClCompile Include="map.cpp" />
@@ -91,7 +92,9 @@
     <ClCompile Include="SerialPort.cpp" />
     <QtRcc Include="Genimonfinal.qrc" />
     <QtRcc Include="Image.qrc" />
+    <QtRcc Include="Music.qrc" />
     <QtUic Include="capture.ui" />
+    <QtUic Include="choixaction.ui" />
     <QtUic Include="choixjoueur.ui" />
     <QtUic Include="combat.ui" />
     <QtUic Include="commande.ui" />
@@ -149,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="genimon.h" />
+    <QtMoc Include="choixaction.h" />
     <ClInclude Include="json.hpp" />
     <QtMoc Include="pause.h" />
     <ClInclude Include="SerialPort.hpp" />

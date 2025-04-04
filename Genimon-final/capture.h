@@ -2,6 +2,7 @@
 #define CAPTURE_H
 
 #include <QWidget>
+#include <QPropertyAnimation>
 
 namespace Ui {
 class Capture;
@@ -20,6 +21,9 @@ public slots:
 
 private:
     Ui::Capture *ui;
+    QPropertyAnimation* animation;
+
+    void animPokeball();
 
 signals:
     void requestMenuChange(int index);  // Signal pour demander un changement de menu

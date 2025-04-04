@@ -23,6 +23,7 @@ Controle::Controle(QWidget* parent)
     stackedWidget->addWidget(new Commande(this)); // Index 7
     stackedWidget->addWidget(new Regle(this)); // Index 8
     stackedWidget->addWidget(new Pause(this)); // Index 9
+    stackedWidget->addWidget(new ChoixAction(this)); // Index 10
     setCentralWidget(stackedWidget);
 
     choixJoueurMenu = qobject_cast<ChoixJoueur*>(stackedWidget->widget(1));
@@ -34,6 +35,7 @@ Controle::Controle(QWidget* parent)
     commandeMenu = qobject_cast<Commande*>(stackedWidget->widget(7));
     regleMenu = qobject_cast<Regle*>(stackedWidget->widget(8));
     pauseMenu = qobject_cast<Pause*>(stackedWidget->widget(9));
+    choixActionMenu = qobject_cast<ChoixAction*>(stackedWidget->widget(10));
 
     //Permet d'envoyer nom joueur de choixJoueur a Map
     connect(choixJoueurMenu, &ChoixJoueur::sendNomJoueur, mapMenu, &Map::setNomJoueur);
@@ -86,11 +88,15 @@ void Controle::keyPressEvent(QKeyEvent* event) {
     }
     else if (stackedWidget->currentIndex() == 3) // Menu Capture
     {
-
+        if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2) {
+            emit sendKeyPress(event->key());
+        }
     }
     else if (stackedWidget->currentIndex() == 4) // Menu Combat
     {
-
+        if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3 || event->key() == Qt::Key_4) {
+            emit sendKeyPress(event->key());
+        }
     }
     else if (stackedWidget->currentIndex() == 5) // Menu Genidex
     {
@@ -129,6 +135,12 @@ void Controle::keyPressEvent(QKeyEvent* event) {
         }
 
     }
+    else if (stackedWidget->currentIndex() == 10) // Menu ChoixAction
+    {
+        if (event->key() == Qt::Key_1 || event->key() == Qt::Key_2 || event->key() == Qt::Key_3) {
+            emit sendKeyPress(event->key());
+        }
+    }
 }
 
 void Controle::changeMenu(int index) {
@@ -157,6 +169,8 @@ void Controle::changeMenu(int index) {
     disconnect(this, &Controle::sendKeyPress, pauseMenu, &Pause::handleKeyPress);
     disconnect(pauseMenu, &Pause::requestMenuChange, this, &Controle::changeMenu);
     disconnect(pauseMenu, &Pause::mode5a8, mapMenu, &Map::gererMode5a8);
+    disconnect(this, &Controle::sendKeyPress, choixActionMenu, &ChoixAction::handleKeyPress);
+    disconnect(choixActionMenu, &ChoixAction::requestMenuChange, this, &Controle::changeMenu);
 
 
     // Relier commande clavier et de changement de menu aux autres menus.
@@ -201,5 +215,9 @@ void Controle::changeMenu(int index) {
         connect(pauseMenu, &Pause::reinitialiserJeu, choixJoueurMenu, &ChoixJoueur::initialiserChoixJoueur);
         connect(pauseMenu, &Pause::reinitialiserJeu, mapMenu, &Map::initialiserMap);
         connect(pauseMenu, &Pause::mode5a8, mapMenu, &Map::gererMode5a8);
+    }
+    else if (index == 10) {
+        connect(this, &Controle::sendKeyPress, choixActionMenu, &ChoixAction::handleKeyPress);
+        connect(choixActionMenu, &ChoixAction::requestMenuChange, this, &Controle::changeMenu);
     }
 }
